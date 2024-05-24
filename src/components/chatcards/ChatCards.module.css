@@ -45,6 +45,20 @@
 .saved
 {
     background: linear-gradient(90deg, #BFACE2 0%, #D7C7F4 100%);
+    margin-bottom: 0;
+}
+
+.feedback
+{
+    width: 100px;
+    height: 30px;
+    margin-top: 20px;
+    font-size: 14px;
+    border:0;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
 }
 
 @media screen and (max-width:1110px) 

@@ -2,15 +2,28 @@ import sidebar from './Sidebar.module.css'
 import logo from '../../assets/logo.png'
 import newchat from '../../assets/newchat.png'
 import { useChat } from '../../contextapi/ChatContext'
+import { useEffect } from 'react'
 
-const Sidebar = () =>
+const Sidebar = ({setFlag}) =>
 {
-    const {getCurrentChat} = useChat();
+    const {getCurrentChat, getChatHistory, chatHistory, selectedChatHistory } = useChat();
+
+    useEffect(() =>
+    {
+        getChatHistory();
+    },[])
 
     const handleClick = () =>
     {
         localStorage.removeItem('CurrentChat');
+        setFlag(false);
         getCurrentChat();
+    }
+
+    const handleChatHistory = (index) =>
+    {
+        setFlag(true);
+        selectedChatHistory(chatHistory[index]);
     }
 
     return(
@@ -25,6 +38,11 @@ const Sidebar = () =>
             </div>
 
             <p className={sidebar.chat_history}>Past Conversations</p>
+
+            {chatHistory?.map((chat, index)=>
+            (
+                <span key={index} className={sidebar.pill} onClick={()=>handleChatHistory(index)}>Conversation {index + 1}</span>
+            ))}
         </div>
     )
 }

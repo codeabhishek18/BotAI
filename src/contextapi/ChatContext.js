@@ -6,7 +6,8 @@ const ChatProvider = ({children}) =>
 {
     const [chat, setChat] = useState([]);
     const [chatHistory, setChatHistory] = useState([]);
-
+    const [selectedChat, setSelectedChat] = useState([])
+ 
     const getCurrentChat = () =>
     {
         setChat(JSON.parse(localStorage.getItem('CurrentChat')));
@@ -26,9 +27,14 @@ const ChatProvider = ({children}) =>
 
     const updateChatHistory = (newConversation) =>
     {
-        const pastChats = chatHistory === null ? newConversation : [...chatHistory,newConversation];
+        const pastChats = chatHistory === null ? [newConversation] : [...chatHistory,newConversation];
         localStorage.setItem('ChatHistory', JSON.stringify(pastChats));
         getChatHistory();
+    }
+
+    const selectedChatHistory = (Conversation) =>
+    {
+        setSelectedChat(Conversation);
     }
 
     return(
@@ -38,8 +44,11 @@ const ChatProvider = ({children}) =>
                 chat, 
                 getCurrentChat, 
                 updateCurrentChat, 
+                chatHistory,
                 getChatHistory, 
-                updateChatHistory
+                updateChatHistory,
+                selectedChat,
+                selectedChatHistory
             }}>
             {children}
         </ChatContext.Provider>

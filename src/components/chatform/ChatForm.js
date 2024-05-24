@@ -15,6 +15,7 @@ const ChatForm = ({setQuery}) =>
 
     const handleSave = () =>
     {
+        console.log(chat);
         updateChatHistory(chat);
     }
 

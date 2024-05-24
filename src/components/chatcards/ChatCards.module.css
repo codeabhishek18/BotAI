@@ -42,11 +42,16 @@
     height: 69px;
 }
 
+.saved
+{
+    background: linear-gradient(90deg, #BFACE2 0%, #D7C7F4 100%);
+}
+
 @media screen and (max-width:1110px) 
 {
     .container
     {
-        width: 92%;
+        width: 90%;
     }
 }
 

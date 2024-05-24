@@ -4,7 +4,7 @@ import chats from './Chats.module.css'
 import { Responses } from '../../data/Responses';
 import { useChat } from '../../contextapi/ChatContext';
 
-const chatId = () =>
+export const chatId = () =>
     {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
     let result ='';
@@ -19,6 +19,7 @@ const Chats = ({query}) =>
 {
 
     const [response, setResponse] = useState(null);
+    const [time, setTime] = useState('');
     const { chat, getCurrentChat, updateCurrentChat } = useChat();
 
     useEffect(()=>
@@ -35,6 +36,17 @@ const Chats = ({query}) =>
     {   
         chatHistory();
     },[response])
+
+    const generateTime = () =>
+    {
+        const date = new Date();
+        const hour = date.getHours();
+        const minutes = date.getMinutes();
+        const timing = hour>=12 ? 'PM' : 'AM';
+        const timeformat = hour +':' +minutes +' ' +timing ;
+        setTime(timeformat);
+        return timeformat;
+    }
     
     const chatHistory = () =>
     {
@@ -44,7 +56,7 @@ const Chats = ({query}) =>
         if(response === null)
             return;
 
-        const newChat = {id: chatId(), question: query, answer: response}
+        const newChat = {id: chatId(), question: query, answer: response, time: generateTime()}
         updateCurrentChat(newChat);
     }
 
@@ -60,8 +72,8 @@ const Chats = ({query}) =>
             {chat?.map((data)=>
             (
                 <div key={data.id}>
-                    <ChatCards query={data.question}/>
-                    {response && <ChatCards response={data.answer} type="response"/>}
+                    <ChatCards query={data.question} time={time}/>
+                    {response && <ChatCards response={data.answer} type="response" time={time}/>}
                 </div>
             ))}
         </div>

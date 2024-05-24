@@ -22,7 +22,7 @@
     cursor: pointer;
 }
 
-.chat_history
+.chat_history, .pill
 {
     background-color: var(--tertiary-color);
     height: 20px;
@@ -36,3 +36,4 @@
     border-radius: 10px;
     cursor: pointer;
 }
+

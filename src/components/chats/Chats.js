@@ -3,9 +3,22 @@ import ChatCards from '../chatcards/ChatCards'
 import chats from './Chats.module.css'
 import { Responses } from '../../data/Responses';
 
+const chatId = () =>
+    {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+    let result ='';
+    for(let i=0;i<6;i++)
+    {
+        result += characters.charAt(Math.floor(Math.random() * characters.length))
+    }
+    return result;
+}
+
 const Chats = ({query}) =>
 {
     const [response, setResponse] = useState('');
+    const [chatData, setChatData] = useState([]);
+    console.log(chatData);
 
     useEffect(() =>
     {
@@ -14,6 +27,22 @@ const Chats = ({query}) =>
             getResponse();
         },1000)
     },[query])
+
+    useEffect(()=>
+    {   
+        chatHistory();
+    },[response])
+    
+    const chatHistory = () =>
+    {
+        const newChat = {id: chatId(), question: query, answer: response} 
+        const history = JSON.parse(localStorage.getItem('History'));
+        const updatedChat = history ? [...history, newChat] : [newChat];
+        setChatData(updatedChat);
+        if(!response)
+            return;
+        localStorage.setItem('History', JSON.stringify(updatedChat));
+    }
 
     const getResponse = () =>
     {
@@ -24,8 +53,13 @@ const Chats = ({query}) =>
 
     return(
         <div className={chats.container}>
-            <ChatCards query={query}/>
-            {response && <ChatCards response={response} type="response"/>}
+            {chatData?.map((data)=>
+            (
+                <div key={data.id}>
+                    <ChatCards query={data.question}/>
+                    {response && <ChatCards response={data.answer} type="response"/>}
+                </div>
+            ))}
         </div>
     )
 }

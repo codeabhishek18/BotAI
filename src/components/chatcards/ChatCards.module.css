@@ -1,6 +1,7 @@
 .container
 {
-    width: 95%;
+    margin-left: 10px;
+    width: 93%;
     padding: 20px;
     display: flex;
     background: var(--tertiary-color);
@@ -38,5 +39,15 @@
 .container>img
 {
     height: 69px;
-    height: fit-content;
+    height: 69px;
 }
+
+@media screen and (max-width:1110px) 
+{
+    .container
+    {
+        width: 92%;
+    }
+}
+
+

@@ -1,13 +1,14 @@
 import { useState } from 'react';
 import chatform from './ChatForm.module.css';
 
-const ChatForm = () =>
+const ChatForm = ({setQuery}) =>
 {
-    const [chat, setChat] = useState(null);
+    const [input, setInput] = useState('');
 
     const handleAsk = () =>
     {
-
+        setQuery(input);
+        setInput('')
     }
 
     const handleSave = () =>
@@ -20,8 +21,8 @@ const ChatForm = () =>
             <input
                 className={chatform.chat} 
                 name="chat"
-                value={chat}
-                onChange={(e)=>setChat(e.target.value)}/>
+                value={input}
+                onChange={(e)=>setInput(e.target.value)}/>
 
             <button 
                 className={chatform.ask}

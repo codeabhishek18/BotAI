@@ -6,9 +6,9 @@
     align-items: center;
     padding: 20px;
     position: absolute;
-    bottom: 0;
+    bottom: 20px;
     left: 0;
-    width: 97%;
+    width: 95%;
 }
 
 .chat

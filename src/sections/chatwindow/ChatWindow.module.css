@@ -1,18 +1,22 @@
 .container
 {
     height: 100%;
-    width: 80%;
+    width: 75%;
     background: linear-gradient(180deg, rgba(215, 199, 244, 0.2) 0%, rgba(151, 133, 186, 0.2) 100%);
     position: relative;
+    padding: 20px;
+    padding-bottom: 0;
 }
 
 .header
 {
     margin: 0;
     position: relative;
-    left: 30px;
-    top:30px;
+    width: 100%;
+    left: 0px;
+    top:0px;
     font-size: 28px;
     font-weight: 700;
     color: var(--primary-color);
+    margin-bottom: 20px;
 }

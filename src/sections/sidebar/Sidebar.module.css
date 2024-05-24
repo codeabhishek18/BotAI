@@ -1,0 +1,38 @@
+.container
+{
+    width: 20%;
+    height: 100%;
+    background-color: white;
+}
+
+.newchat
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--tertiary-color);
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 400;
+    height: 40px;
+}
+
+.newchat>img:last-child
+{
+    cursor: pointer;
+}
+
+.chat_history
+{
+    background-color: var(--tertiary-color);
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    font-size: 18px;
+    font-weight: 600;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}

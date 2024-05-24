@@ -17,7 +17,8 @@ const ChatForm = () =>
 
     return(
         <div className={chatform.container}>
-            <input 
+            <input
+                className={chatform.chat} 
                 name="chat"
                 value={chat}
                 onChange={(e)=>setChat(e.target.value)}/>

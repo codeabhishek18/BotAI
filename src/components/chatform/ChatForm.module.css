@@ -1,0 +1,35 @@
+.container
+{
+    display: flex;
+    column-gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 97%;
+}
+
+.chat
+{
+    width: 85%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid black;
+    font-size: 18px;
+    font-weight: 400;
+    padding-left: 10px;
+}
+
+.ask, .save
+{
+    background-color: var(--tertiary-color);
+    width: 80px;
+    height: 40px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 400;
+    border: 0;
+    cursor: pointer;
+}

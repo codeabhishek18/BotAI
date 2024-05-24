@@ -1,11 +1,12 @@
 import ChatWindow from "../../sections/chatwindow/ChatWindow";
 import Sidebar from "../../sections/sidebar/Sidebar";
+import home from './Home.module.css'
 
 const Home = () =>
 {
 
     return(
-        <div>
+        <div className={home.container}>
             <Sidebar/>
             <ChatWindow/>
         </div>

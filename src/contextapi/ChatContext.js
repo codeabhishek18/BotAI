@@ -16,7 +16,25 @@ const ChatProvider = ({children}) =>
     const updateCurrentChat = (newChat) =>
     {
         const currentChat = chat === null ? [newChat] : [...chat, newChat];
+        console.log(currentChat);
         localStorage.setItem('CurrentChat', JSON.stringify(currentChat));
+        getCurrentChat();
+    }
+
+    const editCurrentChat = (card, rating) =>
+    {
+        const chatIndex = chat?.findIndex((list)=> list?.id === card);
+        console.log(chat[chatIndex]);
+
+        const transientChat = { id: chat[chatIndex]?.id, 
+                                question : chat[chatIndex]?.question, 
+                                answer : chat[chatIndex]?.answer, 
+                                time: chat[chatIndex]?.time, 
+                                rating : rating, 
+                               }
+     
+        chat[chatIndex] = transientChat;
+        localStorage.setItem('CurrentChat', JSON.stringify(chat));
         getCurrentChat();
     }
 
@@ -44,6 +62,7 @@ const ChatProvider = ({children}) =>
                 chat, 
                 getCurrentChat, 
                 updateCurrentChat, 
+                editCurrentChat,
                 chatHistory,
                 getChatHistory, 
                 updateChatHistory,

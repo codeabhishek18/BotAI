@@ -56,7 +56,8 @@ const Chats = ({query}) =>
         if(response === null)
             return;
 
-        const newChat = {id: chatId(), question: query, answer: response, time: generateTime()}
+        const newChat = {id: chatId(), question: query, answer: response, time: generateTime(), rating : 0, feedback : ''}
+        
         updateCurrentChat(newChat);
     }
 
@@ -71,9 +72,9 @@ const Chats = ({query}) =>
         <div className={chats.container}>
             {chat?.map((data)=>
             (
-                <div key={data.id}>
-                    <ChatCards query={data.question} time={time}/>
-                    {response && <ChatCards response={data.answer} type="response" time={time}/>}
+                <div key={data?.id}>
+                    <ChatCards query={data?.question} chattime={data?.time} time={time}/>
+                    {response && <ChatCards response={data?.answer} type="response" chattime={data?.time} time={time} id={data?.id}/>}
                 </div>
             ))}
         </div>

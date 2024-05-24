@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import chatform from './ChatForm.module.css';
+import { useChat } from '../../contextapi/ChatContext';
 
 const ChatForm = ({setQuery}) =>
 {
     const [input, setInput] = useState('');
+    const {chat, updateChatHistory} = useChat();
 
     const handleAsk = () =>
     {
@@ -13,7 +15,7 @@ const ChatForm = ({setQuery}) =>
 
     const handleSave = () =>
     {
-            
+        updateChatHistory(chat);
     }
 
     return(
@@ -22,7 +24,8 @@ const ChatForm = ({setQuery}) =>
                 className={chatform.chat} 
                 name="chat"
                 value={input}
-                onChange={(e)=>setInput(e.target.value)}/>
+                onChange={(e)=>setInput(e.target.value)}
+                required/>
 
             <button 
                 className={chatform.ask}

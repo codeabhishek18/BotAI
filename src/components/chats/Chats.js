@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import ChatCards from '../chatcards/ChatCards'
 import chats from './Chats.module.css'
 import { Responses } from '../../data/Responses';
+import { useChat } from '../../contextapi/ChatContext';
 
 const chatId = () =>
     {
@@ -16,16 +17,18 @@ const chatId = () =>
 
 const Chats = ({query}) =>
 {
-    const [response, setResponse] = useState('');
-    const [chatData, setChatData] = useState([]);
-    console.log(chatData);
+
+    const [response, setResponse] = useState(null);
+    const { chat, getCurrentChat, updateCurrentChat } = useChat();
+
+    useEffect(()=>
+    {
+        getCurrentChat();
+    },[])
 
     useEffect(() =>
     {
-        setTimeout(()=>
-        {
-            getResponse();
-        },1000)
+        getResponse();
     },[query])
 
     useEffect(()=>
@@ -35,13 +38,14 @@ const Chats = ({query}) =>
     
     const chatHistory = () =>
     {
-        const newChat = {id: chatId(), question: query, answer: response} 
-        const history = JSON.parse(localStorage.getItem('History'));
-        const updatedChat = history ? [...history, newChat] : [newChat];
-        setChatData(updatedChat);
-        if(!response)
+        if(query === null)
             return;
-        localStorage.setItem('History', JSON.stringify(updatedChat));
+
+        if(response === null)
+            return;
+
+        const newChat = {id: chatId(), question: query, answer: response}
+        updateCurrentChat(newChat);
     }
 
     const getResponse = () =>
@@ -53,7 +57,7 @@ const Chats = ({query}) =>
 
     return(
         <div className={chats.container}>
-            {chatData?.map((data)=>
+            {chat?.map((data)=>
             (
                 <div key={data.id}>
                     <ChatCards query={data.question}/>

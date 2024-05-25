@@ -3,6 +3,7 @@
     width: 25%;
     height: 100%;
     background-color: white;
+    position: relative;
 }
 
 .newchat
@@ -22,7 +23,7 @@
     cursor: pointer;
 }
 
-.chat_history, .pill
+.chat_history, .pill, .ratings
 {
     background-color: var(--tertiary-color);
     height: 20px;

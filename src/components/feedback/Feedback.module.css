@@ -19,9 +19,9 @@
     background: #FAF7FF;
     border-radius: 10px;
     display: flex;
-    flex-direction: column;align-items: center;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    padding-bottom: 40px;
 }
 
 .header
@@ -39,21 +39,22 @@
 .box>input
 {
     width: 80%;
-    height: 40%;
-    padding: 20px;
+    padding: 10px;
+    padding-bottom: 140px;
+    font-size: 16px;
     border-radius: 5px;
     border: 1px solid black;
+    display: flex;
+    align-items: flex-start;
 }
 
-.close
+.footer
 {
-    margin-bottom: 10px;
-    font-size: 20px;
-    font-weight: 700;
-    cursor: pointer;
+    display: flex;
+    column-gap: 30px;
 }
 
-.box>button
+.submit, .close
 {
     width: 120px;
     height: 40px;
@@ -62,4 +63,5 @@
     border-radius: 5px;
     margin-top: 15px;
     border: 0;
+    cursor: pointer;
 }

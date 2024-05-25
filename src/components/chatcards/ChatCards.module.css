@@ -61,6 +61,12 @@
     cursor: pointer;
 }
 
+.readfeedback
+{
+    margin-top: 20px;
+    font-size: 18px;
+}
+
 @media screen and (max-width:1110px) 
 {
     .container

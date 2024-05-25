@@ -6,13 +6,11 @@ import { useEffect, useState } from 'react';
 import { useChat } from '../../contextapi/ChatContext';
 import Feedback from '../feedback/Feedback';
 
-const ChatCards = ({query, response, time, chattime, type, chatType, id, rating}) =>
+const ChatCards = ({query, response, time, chattime, type, chatType, id, rating, feedback}) =>
 {
     const { editCurrentChat } = useChat();
     const [value, setValue] = useState(0);
     const [display, setDisplay] = useState(false);
-
-    console.log(rating);
 
     useEffect(() =>
     {
@@ -33,7 +31,10 @@ const ChatCards = ({query, response, time, chattime, type, chatType, id, rating}
                         value={value}
                         onChange={(event, newValue) => 
                         {
-                            setValue(newValue);
+                            if(newValue>0)
+                            {
+                                setValue(newValue);
+                            }
                         }
                     }/>
                 }
@@ -52,7 +53,14 @@ const ChatCards = ({query, response, time, chattime, type, chatType, id, rating}
                     <button onClick={()=>setDisplay(true)} className={chatcards.feedback}>Feedback</button>
                 }
 
-                {display && <Feedback setDisplay={setDisplay}/>}
+                {type==="response" && chatType === "saved" && feedback &&
+                    <p className={chatcards.readfeedback}>
+                        <span style={{fontWeight:'600'}}>Feedback : </span>
+                        {feedback}
+                    </p>
+                }
+
+                {display && <Feedback setDisplay={setDisplay} id={id}/>}
 
             </div>
         </div>

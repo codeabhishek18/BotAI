@@ -21,19 +21,29 @@ const ChatProvider = ({children}) =>
         getCurrentChat();
     }
 
-    const editCurrentChat = (card, rating) =>
+    const editCurrentChat = (card, rating, feedback) =>
     {
         const chatIndex = chat?.findIndex((list)=> list?.id === card);
-        console.log(chat[chatIndex]);
 
-        const transientChat = { id: chat[chatIndex]?.id, 
+        const editedChat =  {   id: chat[chatIndex]?.id, 
                                 question : chat[chatIndex]?.question, 
                                 answer : chat[chatIndex]?.answer, 
-                                time: chat[chatIndex]?.time, 
-                                rating : rating, 
-                               }
+                                time: chat[chatIndex]?.time,
+                                rating: chat[chatIndex]?.rating,
+                                feedback: chat[chatIndex]?.feedback,                         
+                            }
+
+        if(rating > 0)
+        {
+            editedChat["rating"] = rating;
+        }
+
+        if(feedback !== '')
+        {
+            editedChat["feedback"] = feedback;
+        }
      
-        chat[chatIndex] = transientChat;
+        chat[chatIndex] = editedChat;
         localStorage.setItem('CurrentChat', JSON.stringify(chat));
         getCurrentChat();
     }

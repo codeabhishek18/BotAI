@@ -43,7 +43,7 @@ const Chats = ({query}) =>
         const hour = date.getHours();
         const minutes = date.getMinutes();
         const timing = hour>=12 ? 'PM' : 'AM';
-        const timeformat = hour +':' +minutes +' ' +timing ;
+        const timeformat = (hour) +':' +(minutes<10 ? '0'+minutes : minutes) +' ' +timing ;
         setTime(timeformat);
         return timeformat;
     }

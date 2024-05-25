@@ -43,6 +43,10 @@ const Sidebar = ({setFlag}) =>
             (
                 <span key={index} className={sidebar.pill} onClick={()=>handleChatHistory(index)}>Conversation {index + 1}</span>
             ))}
+
+            <hr></hr>
+
+            <p className={sidebar.ratings}>Ratings & Feedback</p>
         </div>
     )
 }

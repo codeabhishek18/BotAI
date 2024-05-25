@@ -249,6 +249,26 @@ export const Responses =
       "id": 50,
       "question": "How do you stay updated with the latest technology trends?",
       "response": "Staying updated involves following industry news, participating in developer communities, attending conferences and workshops, taking online courses, reading technical blogs and publications, and experimenting with new technologies and tools."
+    },
+    {
+      "id": 51,
+      "question": "Hi, what is the weather",
+      "response": "I can't provide real-time information like the current weather since I don't have access to external systems. You can check the weather by searching online or using a weather app on your phone. If you need help with anything else, feel free to ask!"
+    },
+    {
+      "id": 52,
+      "question": "Hi, what is my location",
+      "response": "I can't provide real-time temperature updates either, but you can check the temperature by using a weather app on your phone or by searching online for the current temperature in your location. If you need assistance with anything else, feel free to ask!"
+    },
+    {
+      "id": 53,
+      "question": "Hi, what is the temperature",
+      "response": "I can't provide real-time temperature updates either, but you can check the temperature by using a weather app on your phone or by searching online for the current temperature in your location. If you need assistance with anything else, feel free to ask!"
+    },
+    {
+      "id": 54,
+      "question": "Hi, how are you",
+      "response": "I'm doing well, thank you for asking! How about you? How's your day going?"    
     }
 ]
   

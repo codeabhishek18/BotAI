@@ -29,7 +29,10 @@ const Chats = ({query}) =>
 
     useEffect(() =>
     {
-        getResponse();
+        setTimeout(()=>
+        {
+            getResponse();
+        },1000)
     },[query])
 
     useEffect(()=>

@@ -5,12 +5,13 @@ import home from './Home.module.css'
 
 const Home = () =>
 {
+    const [query, setQuery] = useState(null);
     const [flag, setFlag] = useState(false)
 
     return(
         <div className={home.container}>
-            <Sidebar setFlag={setFlag}/>
-            <ChatWindow flag={flag}/>
+            <Sidebar setFlag={setFlag} setQuery={setQuery}/>
+            <ChatWindow flag={flag} query={query} setQuery={setQuery}/>
         </div>
     )
 }

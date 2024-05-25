@@ -7,7 +7,7 @@ const ChatProvider = ({children}) =>
     const [chat, setChat] = useState([]);
     const [chatHistory, setChatHistory] = useState([]);
     const [selectedChat, setSelectedChat] = useState([]);
-    const [feedbackList, setFeedbackList] = useState([])
+    // const [feedbackList, setFeedbackList] = useState([])
  
     const getCurrentChat = () =>
     {
@@ -46,7 +46,6 @@ const ChatProvider = ({children}) =>
         chat[chatIndex] = editedChat;
         localStorage.setItem('CurrentChat', JSON.stringify(chat));
         getCurrentChat();
-        updateFeedbackList(chatIndex);
     }
 
     const getChatHistory = () =>
@@ -65,22 +64,20 @@ const ChatProvider = ({children}) =>
     {
         setSelectedChat(Conversation);
     }
-
-    const getFeedbackList = () =>
-    {
-        setFeedbackList(JSON.parse(localStorage.getItem('Feedbacks')));
-    }
-
+    
     const updateFeedbackList = () =>
     {     
         let allfeedbacks = [];
-        chat.forEach((feed)=>
+        chatHistory?.forEach((list) =>
         {
-            const newFeedback = {id:feed?.id, feedback: feed?.feedback, rating: feed?.rating};
-            allfeedbacks.push(newFeedback)
+            list?.forEach((feed) =>
+            {
+                const feeds = {id:feed?.id, feedback: feed?.feedback, rating: feed?.rating}
+                console.log(feeds)
+                allfeedbacks.push(feeds)
+            })
         })
-        localStorage.setItem('Feedbacks', JSON.stringify(allfeedbacks));   
-        getFeedbackList();
+        return allfeedbacks;
     }
 
     return(
@@ -96,7 +93,7 @@ const ChatProvider = ({children}) =>
                 updateChatHistory,
                 selectedChat,
                 selectedChatHistory,
-                feedbackList
+                updateFeedbackList
             }}>
             {children}
         </ChatContext.Provider>

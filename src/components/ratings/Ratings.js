@@ -4,11 +4,11 @@ import ratings from './Ratings.module.css'
 
 const Ratings = ({setDisplayRatings}) =>
 {
-    const { feedbackList } = useChat();
+    const { updateFeedbackList } = useChat();
     const [ filter, setFilter ] = useState(0);
     const [ sort, setSort ] = useState(null);
 
-    const filteredList = filter>0 ? feedbackList.filter((feed) => feed.rating === filter) : feedbackList;
+    const filteredList = filter>0 ? updateFeedbackList().filter((feed) => feed.rating === filter) : updateFeedbackList();
     const sortedArray = sort ? (sort === "high" ? filteredList.sort((a,b)=>b.rating -a.rating) : filteredList.sort((a,b)=> a.rating-b.rating)) : filteredList;
 
     return(

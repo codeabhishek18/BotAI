@@ -4,3 +4,16 @@
     height: 100vh;
     display: flex;
 }
+
+.sidebar
+{
+    width: 25%;
+}
+
+@media screen and (max-width:980px) 
+{
+    .sidebar
+    {
+        display: none;
+    }    
+}

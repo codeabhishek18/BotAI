@@ -5,10 +5,9 @@
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    position: fixed;
+    position: absolute;
     bottom: 0;
-    left: 25vw;
-    width: 70%;
+    width: 95%;
 }
 
 .chat
@@ -32,4 +31,13 @@
     font-weight: 400;
     border: 0;
     cursor: pointer;
+}
+
+@media screen and (max-width:980px)
+{
+    .container
+    {
+        width: 94%; 
+        left: 0;
+    }
 }

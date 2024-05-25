@@ -23,7 +23,6 @@ const ChatCards = ({query, response, time, chattime, type, chatType, id, rating,
             <div className={chatcards.content}>
                 <span>{type === "response" ? 'Soul AI' : 'You' }</span>
                 <p>{type === 'response' ? response : query}</p>
-                <span className={chatcards.time}>{time ? time : chattime}</span>
 
                 {type==="response" && chatType !== "saved" &&  
                     <Rating
@@ -44,6 +43,7 @@ const ChatCards = ({query, response, time, chattime, type, chatType, id, rating,
                         name="read-only"
                         value={rating}
                         readOnly
+                        style={{marginBottom:'10px'}}
                     />
                     :
                     null
@@ -59,6 +59,8 @@ const ChatCards = ({query, response, time, chattime, type, chatType, id, rating,
                         {feedback}
                     </p>
                 }
+
+                <span className={chatcards.time}>{time ? time : chattime}</span>
 
                 {display && <Feedback setDisplay={setDisplay} id={id}/>}
 

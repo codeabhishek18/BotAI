@@ -5,7 +5,7 @@ import { useChat } from '../../contextapi/ChatContext'
 import { useEffect, useState } from 'react'
 import Ratings from '../../components/ratings/Ratings'
 
-const Sidebar = ({setFlag, setQuery}) =>
+const Sidebar = ({setFlag, setQuery, setDisplaySlider}) =>
 {
     const {getCurrentChat, getChatHistory, chatHistory, selectedChatHistory } = useChat();
     const [ displayRatings, setDisplayRatings ] = useState(false);
@@ -18,9 +18,9 @@ const Sidebar = ({setFlag, setQuery}) =>
     const handleClick = () =>
     {
         localStorage.removeItem('CurrentChat');
-        setFlag(false);
         getCurrentChat();
-        setQuery(null);
+        setFlag(false);
+        setQuery(null)
     }
 
     const handleChatHistory = (index) =>
@@ -52,6 +52,7 @@ const Sidebar = ({setFlag, setQuery}) =>
             <p className={sidebar.ratings} onClick={()=> setDisplayRatings(true)}>Ratings & Feedback</p>
 
             {displayRatings && <Ratings setDisplayRatings={setDisplayRatings}/>}
+            <span className={sidebar.close} onClick={()=> setDisplaySlider(false)}>Close</span>
         </div>
     )
 }

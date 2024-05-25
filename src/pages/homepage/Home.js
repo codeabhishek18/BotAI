@@ -6,12 +6,15 @@ import home from './Home.module.css'
 const Home = () =>
 {
     const [query, setQuery] = useState(null);
-    const [flag, setFlag] = useState(false)
+    const [flag, setFlag] = useState(false);
+    const [displaySlider, setDisplaySlider] = useState(false);
 
     return(
         <div className={home.container}>
-            <Sidebar setFlag={setFlag} setQuery={setQuery}/>
-            <ChatWindow flag={flag} query={query} setQuery={setQuery}/>
+            <div className={home.sidebar}>
+                <Sidebar setFlag={setFlag} setQuery={setQuery}/>
+            </div>
+            <ChatWindow flag={flag} query={query} setQuery={setQuery} displaySlider={displaySlider} setDisplaySlider={setDisplaySlider}/>
         </div>
     )
 }

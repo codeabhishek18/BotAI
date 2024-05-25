@@ -8,7 +8,8 @@ const Ratings = ({setDisplayRatings}) =>
     const [ filter, setFilter ] = useState(0);
     const [ sort, setSort ] = useState(null);
 
-    const filteredList = filter>0 ? updateFeedbackList().filter((feed) => feed.rating === filter) : updateFeedbackList();
+    const ratedList = updateFeedbackList().filter((list)=> list.rating>0 || list.feedback !== '')
+    const filteredList = filter>0 ? ratedList.filter((feed) => feed.rating === filter) : ratedList;
     const sortedArray = sort ? (sort === "high" ? filteredList.sort((a,b)=>b.rating -a.rating) : filteredList.sort((a,b)=> a.rating-b.rating)) : filteredList;
 
     return(
@@ -50,8 +51,8 @@ const Ratings = ({setDisplayRatings}) =>
                 {sortedArray.map((feeds) =>
                 (
                     <tr>
-                        <td>{feeds.rating}</td>
-                        <td>{feeds.feedback}</td>
+                        <td>{feeds.rating === 0 ? 'No ratings' : feeds.rating }</td>
+                        <td>{feeds.feedback === '' ? 'No feedback' : feeds.feedback }</td>
                     </tr>
                 ))}
             </table>

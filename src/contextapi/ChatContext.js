@@ -25,6 +25,9 @@ const ChatProvider = ({children}) =>
     {
         const chatIndex = chat?.findIndex((list)=> list?.id === card);
 
+        if(chat === null)
+            return;
+
         const editedChat =  {   id: chat[chatIndex]?.id, 
                                 question : chat[chatIndex]?.question, 
                                 answer : chat[chatIndex]?.answer, 
@@ -64,7 +67,7 @@ const ChatProvider = ({children}) =>
     {
         setSelectedChat(Conversation);
     }
-    
+
     const updateFeedbackList = () =>
     {     
         let allfeedbacks = [];

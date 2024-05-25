@@ -22,6 +22,32 @@
     color: var(--primary-color);
 }
 
+.innerdiv
+{
+    width: 95%;
+}
+
+.convheader
+{
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 400;
+    color: black;
+}
+
+.day
+{
+    width: 100%;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: 400;
+    color: black;
+}
+
 .slider
 {
     display: none;

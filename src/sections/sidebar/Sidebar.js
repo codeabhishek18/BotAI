@@ -4,11 +4,14 @@ import newchat from '../../assets/newchat.png'
 import { useChat } from '../../contextapi/ChatContext'
 import { useEffect, useState } from 'react'
 import Ratings from '../../components/ratings/Ratings'
+import up from '../../assets/up.png'
+import down from '../../assets/down.png'
 
 const Sidebar = ({setFlag, setQuery, setDisplaySlider}) =>
 {
     const {getCurrentChat, getChatHistory, chatHistory, selectedChatHistory } = useChat();
     const [ displayRatings, setDisplayRatings ] = useState(false);
+    const [ displayConvList, setDisplayConvList] = useState(false);
 
     useEffect(() =>
     {
@@ -40,12 +43,19 @@ const Sidebar = ({setFlag, setQuery, setDisplaySlider}) =>
                     onClick={handleClick}/>
             </div>
 
-            <p className={sidebar.chat_history}>Past Conversations</p>
+            <p className={sidebar.chat_history}>
+                Past Conversations 
+                <img src={displayConvList ? up : down } 
+                alt="navigation"
+                onClick={()=> setDisplayConvList(!displayConvList)}/>
+            </p>
 
-            {chatHistory?.map((chat, index)=>
-            (
-                <span key={index} className={sidebar.pill} onClick={()=>handleChatHistory(index)}>Conversation {index + 1}</span>
-            ))}
+            {displayConvList && <div className={sidebar.conversations}>
+                {chatHistory?.map((chat, index)=>
+                (
+                    <span key={index} className={sidebar.pill} onClick={()=>handleChatHistory(index)}>Conversation {index + 1}</span>
+                ))}
+            </div>}
 
             <hr></hr>
 

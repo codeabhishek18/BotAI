@@ -15,7 +15,11 @@ const ChatWindow = ({flag, query, setQuery, displaySlider, setDisplaySlider}) =>
                     <Hamburger/>
                 </div>
                 {displaySlider && <Slider setDisplaySlider={setDisplaySlider}/>}
-                <p className={chatwindow.name}>BotAI</p>
+                {!flag ? <p className={chatwindow.name}>BotAI</p> :
+                <div className={chatwindow.innerdiv}>
+                    <p className={chatwindow.convheader}>Conversation History</p>
+                    <p className={chatwindow.day}>Today’s Chats</p>
+                </div>}
             </div>
             {flag ? <Conversation/> : (query ? <Chats query={query}/> : <Query setQuery={setQuery}/>)}
             {!flag && <ChatForm setQuery={setQuery}/>}

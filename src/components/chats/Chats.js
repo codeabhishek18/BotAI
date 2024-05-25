@@ -74,7 +74,7 @@ const Chats = ({query}) =>
             (
                 <div key={data?.id}>
                     <ChatCards query={data?.question} chattime={data?.time} time={time}/>
-                    {response && <ChatCards response={data?.answer} type="response" chattime={data?.time} time={time} id={data?.id}/>}
+                    {response && <ChatCards response={data?.answer} type="response" chattime={data?.time} time={time} id={data?.id} rating={data.rating} feedback={data.feedback}/>}
                 </div>
             ))}
         </div>

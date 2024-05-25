@@ -2,11 +2,13 @@ import sidebar from './Sidebar.module.css'
 import logo from '../../assets/logo.png'
 import newchat from '../../assets/newchat.png'
 import { useChat } from '../../contextapi/ChatContext'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
+import Ratings from '../../components/ratings/Ratings'
 
 const Sidebar = ({setFlag}) =>
 {
     const {getCurrentChat, getChatHistory, chatHistory, selectedChatHistory } = useChat();
+    const [ displayRatings, setDisplayRatings ] = useState(false);
 
     useEffect(() =>
     {
@@ -46,7 +48,9 @@ const Sidebar = ({setFlag}) =>
 
             <hr></hr>
 
-            <p className={sidebar.ratings}>Ratings & Feedback</p>
+            <p className={sidebar.ratings} onClick={()=> setDisplayRatings(true)}>Ratings & Feedback</p>
+
+            {displayRatings && <Ratings setDisplayRatings={setDisplayRatings}/>}
         </div>
     )
 }

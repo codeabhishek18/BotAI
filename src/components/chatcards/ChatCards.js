@@ -9,8 +9,8 @@ import Feedback from '../feedback/Feedback';
 const ChatCards = ({query, response, time, chattime, type, chatType, id, rating, feedback}) =>
 {
     const { editCurrentChat } = useChat();
-    const [value, setValue] = useState(0);
-    const [display, setDisplay] = useState(false);
+    const [ value, setValue ] = useState(0);
+    const [ display, setDisplay ] = useState(false);
 
     useEffect(() =>
     {

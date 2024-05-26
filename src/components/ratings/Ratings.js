@@ -17,9 +17,8 @@ const Ratings = ({setDisplayRatings}) =>
             <div className={ratings.main}>
             <div className={ratings.filters}>
                 <div className={ratings.filter}>
-                    <h4>Filter By Rating</h4>
                     <select onChange={(e)=>setFilter(Number(e.target.value))}>
-                        <option value="">Choose Option</option>
+                        <option value="">Filter By</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -28,15 +27,13 @@ const Ratings = ({setDisplayRatings}) =>
                     </select>
                 </div>
                 <div  className={ratings.sort}>
-                    <h4>Sort By Rating</h4>
                     <select onChange={(e)=>setSort(e.target.value)}>
-                        <option value="">Choose Option</option>
+                        <option value="">Sort By</option>
                         <option value="high">High to Low</option>
                         <option value="low">Low to High</option>
                     </select>
                 </div>
                 <div className={ratings.cleardiv}>
-                    <h4>Clear Filters</h4>
                     <span className={ratings.clear} onClick={()=>
                         {
                             setFilter(0);

@@ -5,7 +5,7 @@
     top: 0;
     height: 100vh;
     width: 100vw;
-    background-color: rgba(0,0,0,0.75);
+    background-color: rgba(0,0,0,0.85);
     z-index: 20;
     display: flex;
     flex-direction: column;
@@ -94,12 +94,11 @@ h4
     font-weight: 500;
 }
 
-.filter, .sort, .cleardiv
+.filter, .sort, .cleardiv, select
 {
-    width: 120px;
+    width: 100%;
     color: var(--primary-color);
     font-weight: 400;
-    text-align: end;
 }
 
 h4
@@ -120,4 +119,28 @@ h4
     font-weight: 500;
     color: white;
     cursor: pointer;
+}
+
+@media screen and (max-width:980px)
+{
+    .main
+    {
+        width: 60vw;
+    }
+}
+
+@media screen and (max-width:680px)
+{
+    .main
+    {
+        width: 80vw;
+    }
+}
+
+@media screen and (max-width:480px)
+{
+    .filters
+    {
+        flex-direction: column;
+    }
 }

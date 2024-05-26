@@ -21,7 +21,7 @@ const ChatForm = ({setQuery}) =>
         if(!chat.length)
             return enqueueSnackbar("You're yet to start your new conversation", {variant:'warning'})
         updateChatHistory(chat);
-        enqueueSnackbar('Conversation saved. You can revisit them anytime', {variant:'success'})
+        enqueueSnackbar('Conversation saved. Check your past conversations to view them', {variant:'success'})
     }
 
     return(

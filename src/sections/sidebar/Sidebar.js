@@ -13,6 +13,7 @@ const Sidebar = ({setQuery, setFlag, setDisplaySlider, type}) =>
     const { getCurrentChat, getChatHistory, chatHistory, selectedChatHistory } = useChat();
     const [ displayRatings, setDisplayRatings ] = useState(false);
     const [ displayConvList, setDisplayConvList] = useState(false);
+    const [ active, setActive ] = useState(-1);
 
     useEffect(() =>
     {
@@ -25,6 +26,7 @@ const Sidebar = ({setQuery, setFlag, setDisplaySlider, type}) =>
         getCurrentChat();
         setFlag(false);
         setQuery(null);
+        setActive(-1);
         if(type==="slider")
             setDisplaySlider(false);
     }
@@ -32,6 +34,7 @@ const Sidebar = ({setQuery, setFlag, setDisplaySlider, type}) =>
     const handleChatHistory = (index) =>
     {
         setFlag(true);
+        setActive(index);
         selectedChatHistory(chatHistory[index]);
         if(type==="slider")
             setDisplaySlider(false);
@@ -64,12 +67,12 @@ const Sidebar = ({setQuery, setFlag, setDisplaySlider, type}) =>
                 (
                     <span 
                         key={index} 
-                        className={sidebar.pill} 
+                        className={index === active ? `${sidebar.pill} ${sidebar.active}` : sidebar.pill} 
                         onClick={()=>
                             {
                                 handleChatHistory(index)
                             }}>
-                        Conversation {index + 1}
+                        {chat[0].question.slice(0,20) +' ...'}
                         </span>
                 ))}
             </div>}

@@ -4,18 +4,17 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: end;
     align-items: center;
-    position: relative;
 }
 
 .header
 {
-    position: absolute;
-    bottom: 50%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    margin-bottom: 75px;
 }
 
 .header>img
@@ -26,9 +25,42 @@
 
 .cards
 {
+    width: 95%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     column-gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     row-gap: 10px;
+    position: absolute;
+    bottom: 75px;
+}
+
+@media screen and (max-width:660px) 
+{
+    .header
+    {
+        justify-content: flex-start;
+    }
+
+    h1
+    {
+        font-size: 24px;
+    }
+
+    .header>img
+    {
+        width: 45px;
+        height: fit-content;
+    }
+}
+
+@media screen and (max-width:640px) 
+{
+    .cards
+    {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    } 
 }

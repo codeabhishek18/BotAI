@@ -269,6 +269,86 @@ export const Responses =
       "id": 54,
       "question": "Hi, how are you",
       "response": "I'm doing well, thank you for asking! How about you? How's your day going?"    
+    },
+    {
+      "id": 55,
+      "question": "What is React?",
+      "response": "React is a JavaScript library for building user interfaces, developed by Facebook. It allows developers to create reusable UI components and efficiently manage the state of their applications."
+    },
+    {
+      "id": 56,
+      "question": "What are the key features of React?",
+      "response": "Key features of React include virtual DOM for performance optimization, component-based architecture for reusable UI, JSX syntax for mixing HTML with JavaScript, and one-way data flow for predictable state management."
+    },
+    {
+      "id": 57,
+      "question": "What is JSX in React?",
+      "response": "JSX (JavaScript XML) is a syntax extension for JavaScript used with React to describe what the UI should look like. It allows developers to write HTML-like code directly within JavaScript."
+    },
+    {
+      "id": 58,
+      "question": "What is the difference between React and React Native?",
+      "response": "React is a JavaScript library for building web UIs, while React Native is a framework for building native mobile applications using React. React Native allows developers to use React concepts and components to build mobile apps for iOS and Android platforms."
+    },
+    {
+      "id": 59,
+      "question": "How does React handle data binding?",
+      "response": "React uses a unidirectional data flow, also known as one-way data binding. This means that data flows from parent to child components, and child components cannot directly modify the data passed to them. Instead, changes to the data are managed by the parent component."
+    },
+    {
+      "id": 60,
+      "question": "What are props in React?",
+      "response": "Props (short for properties) are a way of passing data from parent to child components in React. They are read-only and help make components reusable and configurable."
+    },
+    {
+      "id": 61,
+      "question": "What are stateful and stateless components in React?",
+      "response": "Stateful components (also known as smart components) have their own internal state managed by React. They can change their state in response to user actions or other events. Stateless components (also known as dumb components) do not have any internal state and are usually used for presenting UI based on props."
+    },
+    {
+      "id": 62,
+      "question": "How do you handle events in React?",
+      "response": "Events in React are handled using camelCase event handlers, similar to handling events in HTML. For example, onClick, onChange, onSubmit, etc. These event handlers are passed as props to components and can be used to handle user interactions."
+    },
+    {
+      "id": 63,
+      "question": "What is the significance of keys in React lists?",
+      "response": "Keys are special attributes used by React to identify which items have changed, are added, or are removed from lists. They help React identify the most efficient way to update the UI when the list changes, improving performance and avoiding unnecessary re-rendering."
+    },
+    {
+      "id": 64,
+      "question": "What are React hooks?",
+      "response": "React hooks are functions that let you use state and other React features without writing a class. They allow functional components to have state, lifecycle methods, and other features that were previously only available in class components."
+    },
+    {
+      "id": 65,
+      "question": "How do you manage state in React?",
+      "response": "State in React can be managed using the useState hook for functional components or by extending the React.Component class and using this.state for class components. State should be treated as immutable, and updates should be done using setState method for class components or by returning a new state from the useState hook for functional components."
+    },
+    {
+      "id": 66,
+      "question": "What is Redux?",
+      "response": "Redux is a predictable state container for JavaScript apps, primarily used with React or Angular for managing application state. It provides a centralized store that holds the entire state tree of an application, making it easy to maintain and manage state across the application."
+    },
+    {
+      "id": 67,
+      "question": "When should you use Redux?",
+      "response": "Redux is useful for managing complex application state that needs to be shared across multiple components or when the application state becomes difficult to manage using only React's built-in state management capabilities."
+    },
+    {
+      "id": 68,
+      "question": "What is React Router?",
+      "response": "React Router is a popular library for adding routing functionality to React applications. It allows developers to define multiple routes in a single-page application and navigate between them without reloading the page."
+    },
+    {
+      "id": 69,
+      "question": "What is the difference between React Router v4 and v5?",
+      "response": "React Router v4 introduced a new declarative API for defining routes using <Route> components. React Router v5 introduced a new hook-based API for accessing router features, making it easier to use with functional components."
+    },
+    {
+      "id": 70,
+      "question": "What are React fragments?",
+      "response": "React fragments are a way to group multiple children elements without adding extra nodes to the DOM. They allow developers to return multiple elements from a component's render method without wrapping them in a parent div."
     }
 ]
   

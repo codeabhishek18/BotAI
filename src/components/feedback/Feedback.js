@@ -12,7 +12,7 @@ const Feedback = ({setDisplay, id}) =>
     const handleClick = () =>
     {
         editCurrentChat(id, 0, feedback);
-        enqueueSnackbar('Feedback recorded', {variant:'success'})
+        enqueueSnackbar('Feedback recorded, save this conversation to view them here anytime', {variant:'success'})
         setDisplay(false);
     }
 

@@ -56,6 +56,13 @@ const Ratings = ({setDisplayRatings}) =>
                         <td>{feeds.feedback === '' ? 'No feedback' : feeds.feedback }</td>
                     </tr>
                 ))}
+                
+                {!sortedArray.length && 
+                    <tr>
+                        <td>No Data</td>
+                        <td>No Data</td>
+                    </tr>
+                }
             </table>
             </div>
             <span className={ratings.close} onClick={()=>setDisplayRatings(false)}>X</span>

@@ -1,15 +1,18 @@
 import './App.css';
 import { ChatProvider } from './contextapi/ChatContext';
-import Home from './pages/homepage/Home';
+import { ThemeProvider } from './contextapi/ThemeContext';
 import { SnackbarProvider } from 'notistack'
+import Home from './pages/homepage/Home';
 
 function App() {
   return (
     <div className="App">
       <ChatProvider>
-        <SnackbarProvider anchorOrigin={{ horizontal: 'center', vertical: 'top' }}>
-          <Home/>
-        </SnackbarProvider>
+        <ThemeProvider>
+          <SnackbarProvider anchorOrigin={{ horizontal: 'center', vertical: 'top' }}>
+            <Home/>
+          </SnackbarProvider>
+        </ThemeProvider>
       </ChatProvider>
     </div>
   );

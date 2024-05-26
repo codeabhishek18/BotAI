@@ -22,12 +22,12 @@
 
 .ask, .save
 {
-    background-color: var(--tertiary-color);
     width: 80px;
     height: 40px;
     border-radius: 5px;
     font-size: 18px;
     font-weight: 400;
+    background-color: var(--tertiary-color);
     border: 0;
     cursor: pointer;
 }
@@ -35,6 +35,17 @@
 .ask:hover, .save:hover
 {
     background-color: var(--secondary-color);
+}
+
+.dark
+{
+    background-color: var(--dark-primary);
+    color: var(--dark-tertiary);
+}
+
+.dark:hover
+{
+    background-color: var(--dark-secondary);
 }
 
 @media screen and (max-width: 620px)

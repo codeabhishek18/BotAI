@@ -8,11 +8,26 @@
     box-shadow: 0px 4px 4px 0px #00000040;
 }
 
+.dark
+{
+    background-color: var(--dark-primary);
+}
+
 .container>h1
 {
     font-size: 20px;
     font-weight: 700;
     margin: 10px;
+}
+
+.dark>h1
+{
+    color: var(--dark-tertiary);
+}
+
+.dark p
+{
+    color: rgb(235, 231, 231);
 }
 
 .container>p

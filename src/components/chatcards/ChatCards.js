@@ -6,7 +6,8 @@ import { useEffect, useState } from 'react';
 import { useChat } from '../../contextapi/ChatContext';
 import Feedback from '../feedback/Feedback';
 
-const ChatCards = ({query, response, time, chattime, type, chatType, id, rating, feedback}) =>
+const ChatCards = (
+    {query, response, time, chattime, type, chatType, id, rating, feedback}) =>
 {
     const { editCurrentChat } = useChat();
     const [ value, setValue ] = useState(0);
@@ -50,7 +51,11 @@ const ChatCards = ({query, response, time, chattime, type, chatType, id, rating,
                 }
 
                 {type==="response" && chatType !== "saved" &&
-                    <button onClick={()=>setDisplay(true)} className={chatcards.feedback}>Feedback</button>
+                    <button 
+                        onClick={()=> setDisplay(true)} 
+                        className={chatcards.feedback}>
+                            Feedback
+                        </button>
                 }
 
                 {type==="response" && chatType === "saved" && feedback &&

@@ -2,11 +2,14 @@ import { useState } from 'react';
 import chatform from './ChatForm.module.css';
 import { useChat } from '../../contextapi/ChatContext';
 import { enqueueSnackbar } from 'notistack';
+import { UseTheme } from '../../contextapi/ThemeContext';
+import classNames from 'classnames';
 
 const ChatForm = ({setQuery}) =>
 {
-    const [input, setInput] = useState('');
+    const [ input, setInput ] = useState('');
     const { chat, updateChatHistory } = useChat();
+    const { theme } = UseTheme();
 
     const handleAsk = () =>
     {
@@ -27,7 +30,7 @@ const ChatForm = ({setQuery}) =>
     return(
         <div className={chatform.container}>
             <input
-                className={chatform.chat} 
+                className={`${chatform.chat} ${chatform[theme]}`}
                 name="chat"
                 placeholder="Message"
                 value={input}
@@ -35,13 +38,13 @@ const ChatForm = ({setQuery}) =>
                 required/>
 
             <button 
-                className={chatform.ask}
+                className={`${chatform.ask} ${chatform[theme]}`}
                 onClick={handleAsk}>
                 Ask
             </button>
 
             <button 
-                className={chatform.save}
+                className={classNames(chatform.save, chatform[theme])}
                 onClick={handleSave}>
                 Save
             </button>

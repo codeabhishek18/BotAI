@@ -7,7 +7,6 @@ const ChatProvider = ({children}) =>
     const [chat, setChat] = useState([]);
     const [chatHistory, setChatHistory] = useState([]);
     const [selectedChat, setSelectedChat] = useState([]);
-    // const [feedbackList, setFeedbackList] = useState([])
  
     const getCurrentChat = () =>
     {

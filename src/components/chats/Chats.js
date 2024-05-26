@@ -32,7 +32,7 @@ const Chats = ({query}) =>
         setTimeout(()=>
         {
             getResponse();
-        },1000)
+        },500)
     },[query])
 
     useEffect(()=>
@@ -44,9 +44,10 @@ const Chats = ({query}) =>
     {
         const date = new Date();
         const hour = date.getHours();
+        const hourformat = hour>12 ? hour%12 : hour
         const minutes = date.getMinutes();
         const timing = hour>=12 ? 'PM' : 'AM';
-        const timeformat = (hour) +':' +(minutes<10 ? '0'+minutes : minutes) +' ' +timing ;
+        const timeformat = (hourformat) +':' +(minutes<10 ? '0'+minutes : minutes) +' ' +timing ;
         setTime(timeformat);
         return timeformat;
     }
@@ -76,8 +77,19 @@ const Chats = ({query}) =>
             {chat?.map((data)=>
             (
                 <div key={data?.id}>
-                    <ChatCards query={data?.question} chattime={data?.time} time={time}/>
-                    {response && <ChatCards response={data?.answer} type="response" chattime={data?.time} time={time} id={data?.id} rating={data.rating} feedback={data.feedback}/>}
+                    <ChatCards 
+                        query={data?.question} 
+                        chattime={data?.time} 
+                        time={time}/>
+                    
+                    {response && 
+                    <ChatCards 
+                        response={data?.answer} 
+                        type="response" 
+                        chattime={data?.time} 
+                        time={time} id={data?.id} 
+                        rating={data.rating} 
+                        feedback={data.feedback}/>}
                 </div>
             ))}
         </div>

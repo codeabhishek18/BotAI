@@ -1,14 +1,14 @@
-import { useState } from 'react';
 import toggle from './Toggle.module.css'
+import { useTheme } from '../../contextapi/ThemeContext';
 
 const Toggle = () =>
 {
-    const [slide, setSlide] = useState(false)
+    const { theme, updateTheme } = useTheme();
 
     return(
-        <div className={slide ? `${toggle.container} ${toggle.light}` : `${toggle.container} ${toggle.dark}`} onClick={()=> setSlide(!slide)}>
+        <div className={theme === 'dark' ? `${toggle.container} ${toggle.light}` : `${toggle.container} ${toggle.dark}`} onClick={()=> updateTheme()}>
             <div 
-                className={slide ? `${toggle.slider} ${toggle.right}` : `${toggle.slider} ${toggle.left}`}>
+                className={theme === 'dark' ? `${toggle.slider} ${toggle.right}` : `${toggle.slider} ${toggle.left}`}>
 
             </div>
         </div>

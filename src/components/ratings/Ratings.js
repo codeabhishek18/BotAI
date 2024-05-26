@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { useChat } from '../../contextapi/ChatContext'
 import ratings from './Ratings.module.css'
+import { useTheme } from '../../contextapi/ThemeContext';
 
 const Ratings = ({setDisplayRatings}) =>
 {
     const { updateFeedbackList } = useChat();
     const [ filter, setFilter ] = useState(0);
     const [ sort, setSort ] = useState(null);
+    const { theme } = useTheme();
 
     const ratedList = updateFeedbackList().filter((list)=> list.rating>0 || list.feedback !== '')
     const filteredList = filter>0 ? ratedList.filter((feed) => feed.rating === filter) : ratedList;
@@ -34,7 +36,7 @@ const Ratings = ({setDisplayRatings}) =>
                     </select>
                 </div>
                 <div className={ratings.cleardiv}>
-                    <span className={ratings.clear} onClick={()=>
+                    <span className={`${ratings.clear} ${ratings[theme]}`} onClick={()=>
                         {
                             setFilter(0);
                             setSort(null);
@@ -42,8 +44,8 @@ const Ratings = ({setDisplayRatings}) =>
                     }>Clear</span>
                 </div>
             </div>
-            <div className={ratings.tablediv}>
-            <table className={ratings.table}>
+            <div className={`${ratings.tablediv} ${ratings[theme]}`}>
+            <table className={`${ratings.table} ${ratings[theme]}`}>
                 <tr>
                     <th>Ratings</th>
                     <th>Feedbacks</th>
@@ -65,7 +67,7 @@ const Ratings = ({setDisplayRatings}) =>
                 }
             </table>
             </div>
-            <span className={ratings.close} onClick={()=>setDisplayRatings(false)}>X</span>
+            <span className={`${ratings.close} ${ratings[theme]}`} onClick={()=>setDisplayRatings(false)}>X</span>
             </div>
         </div>
     )

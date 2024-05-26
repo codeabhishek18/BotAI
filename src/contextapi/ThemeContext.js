@@ -20,9 +20,9 @@ const ThemeProvider = ({children}) =>
     )
 }
 
-const UseTheme = () =>
+const useTheme = () =>
 {
     return useContext(ThemeContext);
 }
 
-export {ThemeProvider, UseTheme}
+export {ThemeProvider, useTheme}

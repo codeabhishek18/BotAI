@@ -5,6 +5,7 @@ import Rating from '@mui/material/Rating';
 import { useEffect, useState } from 'react';
 import { useChat } from '../../contextapi/ChatContext';
 import Feedback from '../feedback/Feedback';
+import { useTheme } from '../../contextapi/ThemeContext';
 
 const ChatCards = (
     {query, response, time, chattime, type, chatType, id, rating, feedback}) =>
@@ -12,6 +13,7 @@ const ChatCards = (
     const { editCurrentChat } = useChat();
     const [ value, setValue ] = useState(0);
     const [ display, setDisplay ] = useState(false);
+    const { theme } = useTheme()
 
     useEffect(() =>
     {
@@ -19,7 +21,7 @@ const ChatCards = (
     },[value])
 
     return(
-        <div className={chatType === "saved" ? `${chatcards.saved} ${chatcards.container}` : chatcards.container}>
+        <div className={chatType === "saved" ? `${chatcards.saved} ${chatcards.container} ${chatcards[theme]}` : `${chatcards.container} ${chatcards[theme]}`}>
             <img src={type === "response" ? logo : user} alt="user"/>
             <div className={chatcards.content}>
                 <span>{type === "response" ? 'Soul AI' : 'You' }</span>
@@ -53,7 +55,7 @@ const ChatCards = (
                 {type==="response" && chatType !== "saved" &&
                     <button 
                         onClick={()=> setDisplay(true)} 
-                        className={chatcards.feedback}>
+                        className={`${chatcards.feedback} ${chatcards[theme]}`}>
                             Feedback
                         </button>
                 }

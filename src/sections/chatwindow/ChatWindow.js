@@ -6,12 +6,11 @@ import Query from "../../components/query/Query";
 import Hamburger from "../../components/hamburger/Hamburger";
 import Slider from '../../components/slider/Slider'
 import { useEffect } from "react";
-import { UseTheme } from "../../contextapi/ThemeContext";
+import { useTheme } from "../../contextapi/ThemeContext";
 
 const ChatWindow = ({query, setQuery, displaySlider, setDisplaySlider,flag, setFlag}) =>
 {
-    const { theme, updateTheme } = UseTheme();
-    console.log(theme);
+    const { theme, updateTheme } = useTheme();
 
     useEffect(()=>
     {
@@ -25,7 +24,7 @@ const ChatWindow = ({query, setQuery, displaySlider, setDisplaySlider,flag, setF
                     <Hamburger/>
                 </div>
                 <div className={chatwindow.heading}>
-                    {!flag ? <p className={chatwindow.name}>BotAI</p> : <p className={chatwindow.convheader}>Conversation History</p>}
+                    {!flag ? <p className={`${chatwindow.name} ${chatwindow[theme]}`}>BotAI</p> : <p className={`${chatwindow.convheader} ${chatwindow[theme]}`}>Conversation History</p>}
                 </div>
                 <span onClick={()=> updateTheme()}>{theme}</span>
             </div>

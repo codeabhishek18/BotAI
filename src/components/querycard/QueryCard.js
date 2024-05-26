@@ -1,9 +1,9 @@
-import { UseTheme } from '../../contextapi/ThemeContext'
+import { useTheme } from '../../contextapi/ThemeContext'
 import querycard from './QueryCard.module.css'
 
 const QueryCard = ({data, setQuery}) =>
 {
-    const { theme } = UseTheme();
+    const { theme } = useTheme();
 
     return(
         <div 

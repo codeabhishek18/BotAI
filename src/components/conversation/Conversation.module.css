@@ -16,6 +16,11 @@
     background: linear-gradient(90deg, #BFACE2 0%, #D7C7F4 100%);
 }
 
+.cards.dark
+{
+    background: var(--dark-secondary);
+}
+
 .day
 {
     font-size: 20px;

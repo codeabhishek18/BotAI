@@ -6,6 +6,11 @@
     position: relative;  
 }
 
+.container.dark
+{
+    background-color: var(--dark-primary);
+}
+
 .newchat
 {
     display: flex;
@@ -23,7 +28,7 @@
     cursor: pointer;
 }
 
-.chat_history, .pill, .ratings, .close
+.chat_history, .pill, .rating, .close
 {
     background-color: var(--tertiary-color);
     height: 20px;
@@ -36,6 +41,11 @@
     padding: 10px;
     border-radius: 10px;
     cursor: pointer;
+}
+
+.newchat
+{
+    background-color: var(--primary-color);
 }
 
 .active
@@ -56,9 +66,30 @@
     display: none;
 }
 
-.chat_history:hover, .close:hover, .newchat:hover, .pill:hover, .ratings:hover
+.chat_history:hover, .close:hover, .newchat:hover, .pill:hover, .rating:hover
 {
     background-color: var(--secondary-color);
+}
+
+.newchat.dark
+{
+    background-color: var(--dark-tertiary);
+}
+
+.pill.dark, .chat_history.dark, .rating.dark
+{
+    background-color: white;
+    color: black;
+}
+
+.pill.dark:hover, .chat_history.dark:hover, .newchat.dark:hover, .rating.dark:hover
+{
+    background-color: var(--dark-tertiary);
+}
+
+.pill.active.dark
+{
+    background-color: var(--dark-tertiary);
 }
 
 
@@ -80,6 +111,11 @@
         left: 50%;
         transform: translateX(-50%);
         bottom: 5vh;
+    }
+
+    .close.dark
+    {
+        background-color: var(--dark-tertiary);
     }
 }
 

@@ -10,10 +10,15 @@
     position: relative;
 }
 
-.dark
+.container.dark
 {
     background: black;
     color: white;
+}
+
+.name.dark, .convheader.dark
+{
+    color: var(--dark-tertiary)
 }
 
 .header

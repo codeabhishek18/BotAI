@@ -6,9 +6,10 @@
     background-color: white;
     cursor: pointer;
     box-shadow: 0px 4px 4px 0px #00000040;
+    color: black;
 }
 
-.dark
+.container.dark
 {
     background-color: var(--dark-primary);
 }
@@ -20,14 +21,19 @@
     margin: 10px;
 }
 
-.dark>h1
+.container.light>h1
+{
+    color: black;
+}
+
+.container.dark>p
 {
     color: var(--dark-tertiary);
 }
 
-.dark p
+.container>h1
 {
-    color: rgb(235, 231, 231);
+    color: white;
 }
 
 .container>p

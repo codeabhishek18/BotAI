@@ -9,10 +9,20 @@
     margin-right: 20px;
 }
 
+.container.dark
+{
+    background-color: black;
+}
+
 .row
 {
     width: 100%;
     height: 5px;
     background-color: var(--primary-color);
     border-radius: 15px;
+}
+
+.row.dark
+{
+    background-color: var(--dark-tertiary);
 }

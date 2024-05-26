@@ -38,6 +38,11 @@
     cursor: pointer;
 }
 
+.close.dark
+{
+    color: var(--dark-tertiary);
+}
+
 .tablediv
 {
     width: 100%;
@@ -53,14 +58,30 @@
     font-size: 16px;
 }
 
+.table.dark
+{
+    background-color: var(--dark-tertiary);
+    color: white;
+}
+
 th
 {
     background-color: var(--primary-color);    
 }
 
+.table.dark>tr>th, .clear.dark
+{
+    background-color: var(--dark-primary);  
+}
+
 td
 {
     background-color: var(--secondary-color);
+}
+
+.table.dark>tr>td
+{
+    background-color: var(--dark-secondary);  
 }
 
 th, td

@@ -4,8 +4,11 @@
     height: 25px;
     display: flex;
     align-items: center;
-    padding: 2px;
-    border-radius: 15px;
+    padding: 5px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-radius: 18px;
+    border: 2px solid var(--dark-tertiary);
     cursor: pointer;
 }
 
@@ -16,6 +19,7 @@
     border-radius: 10px;
     cursor: pointer;
     border-radius: 50%;
+    background-color: white;
 }
 
 .dark
@@ -30,14 +34,12 @@
 
 .right
 {
-    transform: translateX(100%);
+    transform: translateX(95%);
     transition: background-color 0.3s ease-in-out;
-    background-color: black;
 }
 
 .left
 {
     transform: translateX(0);
     transition: background-color 0.3s ease-in-out;
-    background-color: white;
 }

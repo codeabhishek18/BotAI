@@ -70,10 +70,7 @@ const Sidebar = ({setQuery, setFlag, setDisplaySlider, type}) =>
                     <span 
                         key={index} 
                         className={index === active ? `${sidebar.pill} ${sidebar.active} ${sidebar[theme]}` : `${sidebar.pill} ${sidebar[theme]}`} 
-                        onClick={()=>
-                            {
-                                handleChatHistory(index)
-                            }}>
+                        onClick={()=> handleChatHistory(index)}>
                         {chat[0].question.slice(0,20) +' ...'}
                         </span>
                 ))}

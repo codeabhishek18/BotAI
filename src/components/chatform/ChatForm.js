@@ -18,7 +18,7 @@ const ChatForm = ({setQuery}) =>
 
     const handleSave = () =>
     {
-        if(!chat.length)
+        if(!chat)
             return enqueueSnackbar("You're yet to start your new conversation", {variant:'warning'})
         updateChatHistory(chat);
         enqueueSnackbar('Conversation saved. Check your past conversations to view them', {variant:'success'})
@@ -29,6 +29,7 @@ const ChatForm = ({setQuery}) =>
             <input
                 className={chatform.chat} 
                 name="chat"
+                placeholder="Message"
                 value={input}
                 onChange={(e)=>setInput(e.target.value)}
                 required/>

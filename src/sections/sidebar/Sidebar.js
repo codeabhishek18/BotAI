@@ -6,10 +6,11 @@ import { useEffect, useState } from 'react'
 import Ratings from '../../components/ratings/Ratings'
 import up from '../../assets/up.png'
 import down from '../../assets/down.png'
+import { enqueueSnackbar } from 'notistack'
 
-const Sidebar = ({setFlag, setQuery, setDisplaySlider}) =>
+const Sidebar = ({setQuery, setFlag, setDisplaySlider, type}) =>
 {
-    const {getCurrentChat, getChatHistory, chatHistory, selectedChatHistory } = useChat();
+    const { getCurrentChat, getChatHistory, chatHistory, selectedChatHistory } = useChat();
     const [ displayRatings, setDisplayRatings ] = useState(false);
     const [ displayConvList, setDisplayConvList] = useState(false);
 
@@ -23,13 +24,17 @@ const Sidebar = ({setFlag, setQuery, setDisplaySlider}) =>
         localStorage.removeItem('CurrentChat');
         getCurrentChat();
         setFlag(false);
-        setQuery(null)
+        setQuery(null);
+        if(type==="slider")
+            setDisplaySlider(false);
     }
 
     const handleChatHistory = (index) =>
     {
         setFlag(true);
         selectedChatHistory(chatHistory[index]);
+        if(type==="slider")
+            setDisplaySlider(false);
     }
 
     return(
@@ -47,22 +52,44 @@ const Sidebar = ({setFlag, setQuery, setDisplaySlider}) =>
                 Past Conversations 
                 <img src={displayConvList ? up : down } 
                 alt="navigation"
-                onClick={()=> setDisplayConvList(!displayConvList)}/>
+                onClick={()=> {
+                    if(!chatHistory)
+                        return enqueueSnackbar('No past converstions. Save your conversations, to visit them here later', {variant:'warning'})
+                    setDisplayConvList(!displayConvList)}    
+                }/>
             </p>
 
             {displayConvList && <div className={sidebar.conversations}>
                 {chatHistory?.map((chat, index)=>
                 (
-                    <span key={index} className={sidebar.pill} onClick={()=>handleChatHistory(index)}>Conversation {index + 1}</span>
+                    <span 
+                        key={index} 
+                        className={sidebar.pill} 
+                        onClick={()=>
+                            {
+                                handleChatHistory(index)
+                            }}>
+                        Conversation {index + 1}
+                        </span>
                 ))}
             </div>}
 
             <hr></hr>
 
-            <p className={sidebar.ratings} onClick={()=> setDisplayRatings(true)}>Ratings & Feedback</p>
+            <p 
+                className={sidebar.ratings}
+                onClick={()=>
+                    {
+                        if(!chatHistory)
+                            return enqueueSnackbar('No saved conversations/feedback', {variant:'warning'})
+                        setDisplayRatings(true)
+                    }
+                }>
+                    Ratings & Feedback
+                </p>
 
             {displayRatings && <Ratings setDisplayRatings={setDisplayRatings}/>}
-            <span className={sidebar.close} onClick={()=> setDisplaySlider(false)}>Close</span>
+            <span className={sidebar.close} onClick={()=> setDisplaySlider(false)}>X</span>
         </div>
     )
 }

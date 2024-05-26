@@ -12,9 +12,19 @@ const Home = () =>
     return(
         <div className={home.container}>
             <div className={home.sidebar}>
-                <Sidebar setFlag={setFlag} setQuery={setQuery}/>
+                <Sidebar 
+                    setFlag={setFlag} 
+                    setQuery={setQuery}
+                />
             </div>
-            <ChatWindow flag={flag} query={query} setQuery={setQuery} displaySlider={displaySlider} setDisplaySlider={setDisplaySlider}/>
+
+            <ChatWindow 
+                query={query} 
+                setQuery={setQuery} 
+                displaySlider={displaySlider} 
+                setDisplaySlider={setDisplaySlider} 
+                flag={flag} 
+                setFlag={setFlag}/>
         </div>
     )
 }

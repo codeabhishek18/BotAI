@@ -16,4 +16,9 @@
     background: linear-gradient(90deg, #BFACE2 0%, #D7C7F4 100%);
 }
 
+.day
+{
+    font-size: 20px;
+    font-weight: 500;
+}
 

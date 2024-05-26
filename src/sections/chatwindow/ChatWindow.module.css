@@ -22,9 +22,9 @@
     color: var(--primary-color);
 }
 
-.innerdiv
+.heading
 {
-    width: 95%;
+    width: 100%;
 }
 
 .convheader
@@ -36,16 +36,7 @@
     font-size: 28px;
     font-weight: 400;
     color: black;
-}
-
-.day
-{
-    width: 100%;
-    font-size: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    font-weight: 400;
-    color: black;
+    text-align: center;
 }
 
 .slider

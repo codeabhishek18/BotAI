@@ -6,7 +6,7 @@ import Query from "../../components/query/Query";
 import Hamburger from "../../components/hamburger/Hamburger";
 import Slider from '../../components/slider/Slider'
 
-const ChatWindow = ({flag, query, setQuery, displaySlider, setDisplaySlider}) =>
+const ChatWindow = ({query, setQuery, displaySlider, setDisplaySlider,flag, setFlag}) =>
 {
     return(
         <div className={chatwindow.container}>
@@ -14,13 +14,11 @@ const ChatWindow = ({flag, query, setQuery, displaySlider, setDisplaySlider}) =>
                 <div onClick={()=> setDisplaySlider(true)} className={chatwindow.slider}>
                     <Hamburger/>
                 </div>
-                {displaySlider && <Slider setDisplaySlider={setDisplaySlider}/>}
-                {!flag ? <p className={chatwindow.name}>BotAI</p> :
-                <div className={chatwindow.innerdiv}>
-                    <p className={chatwindow.convheader}>Conversation History</p>
-                    <p className={chatwindow.day}>Today’s Chats</p>
-                </div>}
+                <div className={chatwindow.heading}>
+                    {!flag ? <p className={chatwindow.name}>BotAI</p> : <p className={chatwindow.convheader}>Conversation History</p>}
+                </div>
             </div>
+            {displaySlider && <Slider setQuery={setQuery} setDisplaySlider={setDisplaySlider} setFlag={setFlag}/>}
             {flag ? <Conversation/> : (query ? <Chats query={query}/> : <Query setQuery={setQuery}/>)}
             {!flag && <ChatForm setQuery={setQuery}/>}
         </div>

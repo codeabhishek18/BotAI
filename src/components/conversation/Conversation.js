@@ -8,6 +8,7 @@ const Conversation = () =>
 
     return(
         <div className={conversation.container}>
+            <p className={conversation.day}>Today’s Chats</p>
             {selectedChat.map((data, index) =>
             (
                 <div key={index} className={conversation.cards}>

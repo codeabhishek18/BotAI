@@ -14,9 +14,10 @@ const Ratings = ({setDisplayRatings}) =>
 
     return(
         <div className={ratings.container}>
+            <div className={ratings.main}>
             <div className={ratings.filters}>
                 <div className={ratings.filter}>
-                    <label>Filter By Rating</label>
+                    <h4>Filter By Rating</h4>
                     <select onChange={(e)=>setFilter(Number(e.target.value))}>
                         <option value="">Choose Option</option>
                         <option value="1">1</option>
@@ -27,19 +28,22 @@ const Ratings = ({setDisplayRatings}) =>
                     </select>
                 </div>
                 <div  className={ratings.sort}>
-                    <label>Sort By Rating</label>
+                    <h4>Sort By Rating</h4>
                     <select onChange={(e)=>setSort(e.target.value)}>
                         <option value="">Choose Option</option>
                         <option value="high">High to Low</option>
                         <option value="low">Low to High</option>
                     </select>
                 </div>
-                <span className={ratings.clear} onClick={()=>
-                    {
-                        setFilter(0);
-                        setSort(null);
-                    }
-                }>Clear</span>
+                <div className={ratings.cleardiv}>
+                    <h4>Clear Filters</h4>
+                    <span className={ratings.clear} onClick={()=>
+                        {
+                            setFilter(0);
+                            setSort(null);
+                        }
+                    }>Clear</span>
+                </div>
             </div>
             <div className={ratings.tablediv}>
             <table className={ratings.table}>
@@ -58,6 +62,7 @@ const Ratings = ({setDisplayRatings}) =>
             </table>
             </div>
             <span className={ratings.close} onClick={()=>setDisplayRatings(false)}>X</span>
+            </div>
         </div>
     )
 }

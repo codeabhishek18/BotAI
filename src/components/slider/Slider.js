@@ -1,11 +1,11 @@
 import Sidebar from '../../sections/sidebar/Sidebar'
 import slider from './Slider.module.css'
 
-const Slider = ({setDisplaySlider}) =>
+const Slider = ({setQuery, setDisplaySlider, setFlag}) =>
 {
     return(
         <div className={slider.container}>
-            <Sidebar setDisplaySlider={setDisplaySlider}/>
+            <Sidebar setQuery={setQuery} setDisplaySlider={setDisplaySlider} setFlag={setFlag} type="slider"/>
         </div>
     )
 }

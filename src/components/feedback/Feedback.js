@@ -2,6 +2,7 @@ import feedbackstyles from './Feedback.module.css'
 import bulb from '../../assets/bulb.png'
 import { useState } from 'react';
 import { useChat } from '../../contextapi/ChatContext';
+import { enqueueSnackbar } from 'notistack'
 
 const Feedback = ({setDisplay, id}) =>
 {
@@ -10,8 +11,9 @@ const Feedback = ({setDisplay, id}) =>
 
     const handleClick = () =>
     {
-        editCurrentChat(id, 0, feedback)
-        setDisplay(false)
+        editCurrentChat(id, 0, feedback);
+        enqueueSnackbar('Feedback recorded', {variant:'success'})
+        setDisplay(false);
     }
 
     return(

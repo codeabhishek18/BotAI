@@ -3,7 +3,7 @@
     width: 100%;
     height: 100%;
     background-color: white;
-    position: relative;
+    position: relative;  
 }
 
 .newchat
@@ -55,7 +55,20 @@
 {
     .close
     {
+        width: 30px;
+        height: 30px;
+        margin: 0;
+        border-radius: 50%;
         display: block;
+        display: flex;
+        color: white;
+        font-size: 20px;
+        font-weight: 600;
+        align-items: center;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 5vh;
     }
 }
 

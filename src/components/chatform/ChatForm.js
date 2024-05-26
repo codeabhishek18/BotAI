@@ -1,22 +1,27 @@
 import { useState } from 'react';
 import chatform from './ChatForm.module.css';
 import { useChat } from '../../contextapi/ChatContext';
+import { enqueueSnackbar } from 'notistack';
 
 const ChatForm = ({setQuery}) =>
 {
     const [input, setInput] = useState('');
-    const {chat, updateChatHistory} = useChat();
+    const { chat, updateChatHistory } = useChat();
 
     const handleAsk = () =>
     {
+        if(input === '')
+            return enqueueSnackbar("It seems like you've entered an empty query, go again", {variant:'error'})
         setQuery(input);
         setInput('')
     }
 
     const handleSave = () =>
     {
-        console.log(chat);
+        if(!chat.length)
+            return enqueueSnackbar("You're yet to start your new conversation", {variant:'warning'})
         updateChatHistory(chat);
+        enqueueSnackbar('Conversation saved. You can revisit them anytime', {variant:'success'})
     }
 
     return(

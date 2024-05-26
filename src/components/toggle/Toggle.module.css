@@ -1,18 +1,43 @@
 .container
 {
-    width: 150px;
-    height: 40px;
+    width: 50px;
+    height: 25px;
     display: flex;
     align-items: center;
     padding: 2px;
-    background-color: black;
-    border-radius: 50%;
+    border-radius: 15px;
+    cursor: pointer;
 }
 
 .slider
 {
-    width: 40px;
-    height: 40px;
+    width: 25px;
+    height: 25px;
+    border-radius: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.dark
+{
+    background-color: var(--primary-color);
+}
+
+.light
+{
+    background-color: var(--dark-secondary);
+}
+
+.right
+{
+    transform: translateX(100%);
+    transition: background-color 0.3s ease-in-out;
+    background-color: black;
+}
+
+.left
+{
+    transform: translateX(0);
+    transition: background-color 0.3s ease-in-out;
     background-color: white;
-    border: 50%;
 }

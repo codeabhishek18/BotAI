@@ -7,6 +7,7 @@ import Hamburger from "../../components/hamburger/Hamburger";
 import Slider from '../../components/slider/Slider'
 import { useEffect } from "react";
 import { useTheme } from "../../contextapi/ThemeContext";
+import Toggle from "../../components/toggle/Toggle";
 
 const ChatWindow = ({query, setQuery, displaySlider, setDisplaySlider,flag, setFlag}) =>
 {
@@ -26,7 +27,9 @@ const ChatWindow = ({query, setQuery, displaySlider, setDisplaySlider,flag, setF
                 <div className={chatwindow.heading}>
                     {!flag ? <p className={`${chatwindow.name} ${chatwindow[theme]}`}>BotAI</p> : <p className={`${chatwindow.convheader} ${chatwindow[theme]}`}>Conversation History</p>}
                 </div>
-                <span onClick={()=> updateTheme()}>{theme}</span>
+                <div onClick={()=> updateTheme()}>
+                    <Toggle/>
+                </div>
             </div>
             {displaySlider && <Slider setQuery={setQuery} setDisplaySlider={setDisplaySlider} setFlag={setFlag}/>}
             {flag ? <Conversation/> : (query ? <Chats query={query}/> : <Query setQuery={setQuery}/>)}

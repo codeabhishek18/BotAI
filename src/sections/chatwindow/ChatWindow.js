@@ -20,14 +20,16 @@ const ChatWindow = ({query, setQuery, displaySlider, setDisplaySlider,flag, setF
 
     return(
         <div className={`${chatwindow.container} ${chatwindow[theme]}`}>
-                <div className={chatwindow.header}>
-                    <div onClick={()=> setDisplaySlider(true)} className={chatwindow.slider}>
-                        <Hamburger/>
-                    </div>
-                    <div className={chatwindow.heading}>
-                        {!flag ? <p className={`${chatwindow.name} ${chatwindow[theme]}`}>BotAI</p> : <p className={`${chatwindow.convheader} ${chatwindow[theme]}`}>Conversation History</p>}
-                    </div>
+            <div className={chatwindow.header}>
+                <div onClick={()=> setDisplaySlider(true)} className={chatwindow.slider}>
+                    <Hamburger/>
+                </div>
+                <div className={chatwindow.heading}>
+                    {!flag ? <p className={`${chatwindow.name} ${chatwindow[theme]}`}>BotAI</p> : <p className={`${chatwindow.convheader} ${chatwindow[theme]}`}>Conversation History</p>}
+                </div>
+                <div className={chatwindow.toggle}>
                     <Toggle/>
+                </div>
             </div>
             {displaySlider && <Slider setQuery={setQuery} setDisplaySlider={setDisplaySlider} setFlag={setFlag}/>}
             {flag ? <Conversation/> : (query ? <Chats query={query}/> : <Query setQuery={setQuery}/>)}

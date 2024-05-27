@@ -6,6 +6,9 @@ import { useEffect, useState } from 'react';
 import { useChat } from '../../contextapi/ChatContext';
 import Feedback from '../feedback/Feedback';
 import { useTheme } from '../../contextapi/ThemeContext';
+import thumbsup from '../../assets/thumbsup.png';
+import thumbsdown from '../../assets/thumbsdown.png';
+import { enqueueSnackbar } from 'notistack';
 
 const ChatCards = (
     {query, response, time, chattime, type, chatType, id, rating, feedback}) =>
@@ -13,7 +16,10 @@ const ChatCards = (
     const { editCurrentChat } = useChat();
     const [ value, setValue ] = useState(0);
     const [ display, setDisplay ] = useState(false);
-    const { theme } = useTheme()
+    const { theme } = useTheme();
+    const [ hoverThumbs, setHoverThumbs ] = useState(false);
+    const [ like, setLike ] = useState(false);
+    const [ dislike, setDislike ] = useState(false);
 
     useEffect(() =>
     {
@@ -21,7 +27,8 @@ const ChatCards = (
     },[value])
 
     return(
-        <div className={chatType === "saved" ? `${chatcards.saved} ${chatcards.container} ${chatcards[theme]}` : `${chatcards.container} ${chatcards[theme]}`}>
+        <div className={chatType === "saved" ? `${chatcards.saved} ${chatcards.container} ${chatcards[theme]}` : `${chatcards.container} ${chatcards[theme]}`}
+             onMouseEnter={()=> setHoverThumbs(true)} onMouseLeave={() => setHoverThumbs(false)}>
             <img src={type === "response" ? logo : user} alt="user"/>
             <div className={chatcards.content}>
                 <span>{type === "response" ? 'Soul AI' : 'You' }</span>
@@ -68,6 +75,36 @@ const ChatCards = (
                 }
 
                 <span className={chatcards.time}>{time ? time : chattime}</span>
+
+                {type==="response" && chatType!=="saved" && <div className={`${chatcards.thumbs} ${chatcards.nofill} ${chatcards[theme]}`}>
+                    
+                    {hoverThumbs && 
+                        <img src={thumbsup} 
+                            alt="like" onClick={()=>
+                            {   
+                                setLike(true); 
+                                setDislike(false)
+                                enqueueSnackbar("You can also rate and feedback us, if you haven't already")}
+                            }
+                        />
+                    }
+
+                    {hoverThumbs && 
+                        <img src={thumbsdown} 
+                            alt="dislike" onClick={()=> 
+                            {
+                                setDislike(true); 
+                                setLike(false);
+                                enqueueSnackbar("Kindly rate and feedback us, to improve user experience")}
+                            }
+                        />
+                    }
+                </div>}
+
+                {type==="response" && <div className={`${chatcards.thumbs} ${chatcards.fill} ${chatcards[theme]}`}>
+                    {like && <img src={thumbsup} alt="like"/>}
+                    {dislike && <img src={thumbsdown} alt="dislike"/>}
+                </div>}
 
                 {display && <Feedback setDisplay={setDisplay} id={id}/>}
 

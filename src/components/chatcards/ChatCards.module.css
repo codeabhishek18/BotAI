@@ -6,6 +6,7 @@
     background: var(--tertiary-color);
     border-radius: 12px;
     margin-bottom: 20px;
+    position: relative;
 }
 
 .saved.container.dark
@@ -74,6 +75,79 @@
     background-color: var(--primary-color);
     color: white;
     cursor: pointer;
+}
+
+.thumbs
+{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+}
+
+.nofill
+{
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -20px;
+    border-radius: 20px;
+    background-color: var(--secondary-color);
+}
+
+.nofill.dark
+{
+    background-color: white;
+}
+
+.nofill>img
+{
+    margin: 10px;
+}
+
+.nofill>img:last-child
+{
+    margin-left: 0;
+}
+
+.nofill>img:hover
+{
+    transform: scale(1.2);
+}
+
+.fill
+{
+    bottom: 10px;
+    right: 10px;
+    background: var(--secondary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.fill>img
+{
+    margin: 10px;
+}
+
+.dark.fill
+{
+    background: white;
+}
+
+.thumbs>img
+{
+    height: 30px;
+    width: 30px;
+}
+
+.nofill:hover
+{
+    cursor: pointer;
+}
+
+.feedback:hover
+{
+    transform: scale(1.05);
 }
 
 .feedback.dark

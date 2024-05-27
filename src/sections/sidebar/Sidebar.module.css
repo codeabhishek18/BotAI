@@ -66,7 +66,7 @@
     display: none;
 }
 
-.chat_history:hover, .close:hover, .newchat:hover, .pill:hover, .rating:hover
+.chat_history:hover, .close:hover, .pill:hover, .rating:hover
 {
     background-color: var(--secondary-color);
 }
@@ -104,7 +104,7 @@
         display: block;
         display: flex;
         color: white;
-        font-size: 20px;
+        font-size: 30px;
         font-weight: 600;
         align-items: center;
         position: absolute;
@@ -114,6 +114,12 @@
     }
 
     .close.dark
+    {
+        background-color: white;
+        color: var(--dark-primary);
+    }
+
+    .close.dark:hover
     {
         background-color: var(--dark-tertiary);
     }

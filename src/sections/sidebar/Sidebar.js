@@ -59,7 +59,7 @@ const Sidebar = ({setQuery, setFlag, setDisplaySlider, type}) =>
                 alt="navigation"
                 onClick={()=> {
                     if(!chatHistory)
-                        return enqueueSnackbar('No past converstions. Save your conversations, to visit them here later', {variant:'warning'})
+                        return enqueueSnackbar('No past converstions. Save your conversations, to visit them here later')
                     setDisplayConvList(!displayConvList)}    
                 }/>
             </p>
@@ -82,7 +82,7 @@ const Sidebar = ({setQuery, setFlag, setDisplaySlider, type}) =>
                 onClick={()=>
                     {
                         if(!chatHistory)
-                            return enqueueSnackbar('No saved conversations/feedback', {variant:'warning'})
+                            return enqueueSnackbar('No saved conversations/feedback')
                         setDisplayRatings(true)
                     }
                 }>

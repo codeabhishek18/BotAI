@@ -14,15 +14,15 @@ const ChatForm = ({setQuery}) =>
     const handleAsk = () =>
     {
         if(input === '')
-            return enqueueSnackbar("It seems like you've entered an empty query, go again", {variant:'error'})
+            return enqueueSnackbar("It seems like you've entered an empty query, go again")
         setQuery(input);
         setInput('')
     }
 
     const handleSave = () =>
     {
-        if(!chat)
-            return enqueueSnackbar("You're yet to start your new conversation", {variant:'warning'})
+        if(!chat || !chat.length)
+            return enqueueSnackbar("You're yet to start your new conversation")
         updateChatHistory(chat);
         enqueueSnackbar('Conversation saved. Check your past conversations to view them', {variant:'success'})
     }

@@ -56,6 +56,12 @@
     display: none;
 }
 
+.toggle
+{
+    width: 60px;
+    z-index: 200;
+}
+
 @media screen and (max-width:1080px)
 {
     .slider

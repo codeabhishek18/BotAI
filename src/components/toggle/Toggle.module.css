@@ -4,9 +4,7 @@
     height: 25px;
     display: flex;
     align-items: center;
-    padding: 5px;
-    padding-top: 3px;
-    padding-bottom: 3px;
+    padding:2px;
     border-radius: 18px;
     border: 2px solid var(--dark-tertiary);
     cursor: pointer;
@@ -34,7 +32,7 @@
 
 .right
 {
-    transform: translateX(95%);
+    transform: translateX(25px);
     transition: background-color 0.3s ease-in-out;
 }
 

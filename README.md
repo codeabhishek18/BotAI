@@ -24,7 +24,7 @@
 ---------------------------------------------------------------------------------------------------------------------
 
 * Major tech used
------------
+-----------------
 
 1. Context API is one of the major used hook for global data manipulation and updation in this project.
 
